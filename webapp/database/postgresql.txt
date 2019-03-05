@@ -1,0 +1,9 @@
+Notes:
+
+
+How to open psql wit a database:
+sudo -u postgres psql openspaceapidb
+
+Show all databases: \l
+All tables: \dt
+Delete tables: DROP table <tbname>;
