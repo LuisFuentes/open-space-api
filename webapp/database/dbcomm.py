@@ -2,10 +2,9 @@ from configparser import SafeConfigParser
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from webapp import Parser
 
 # Fetch the config settings
-Parser = SafeConfigParser()
-Parser.read('/home/luis/Source/openspaceapi/webapp/config/webappconfig.ini')
 database_user = str(Parser.get("DatabaseSettings", "User"))
 database_pw = str(Parser.get("DatabaseSettings", "Password"))
 database_name = str(Parser.get("DatabaseSettings", "DatabaseName"))
