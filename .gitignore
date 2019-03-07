@@ -3,3 +3,4 @@
 *.vscode
 *venv
 *.json
+*/logs
