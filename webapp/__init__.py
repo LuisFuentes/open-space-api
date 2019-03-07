@@ -12,9 +12,6 @@ from configparser import SafeConfigParser
 import logging
 import logging.handlers
 
-# TODO: Import these libs?
-#import webbrowser
-
 # Setup logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -51,17 +48,17 @@ logger.info('Finished reading all configurations!')
 
 # Setup the flask app & Database
 logger.info('Setting up flask app...')
-webapp = Flask(__name__)
+application = Flask(__name__)
 
 from .database import dbcomm
 from .database import models
 
 # Setup the database using the DB communcation's session
 from .database.dbcomm import db_session
-# webapp.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/openspaceapidb'
+# application.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/openspaceapidb'
 
 # Close the DB Session's when app exits or session ends
-@webapp.teardown_appcontext
+@application.teardown_appcontext
 def shutdown_session(exception=None):
     db_session.remove()
 
