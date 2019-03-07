@@ -19,7 +19,7 @@ logger.setLevel(logging.INFO)
 # Set the log files to be created under current
 # Max size of each log file is 100mb, back up 5 files
 handler = logging.handlers.RotatingFileHandler(
-    'logs/webapplogs.log',
+    './logs/webapplogs.log',
     maxBytes=5*1024*1024, backupCount=5)
 handler.setLevel(logging.INFO)
 
@@ -34,7 +34,7 @@ logger.info('Starting web space api')
 # Read from the app's config file
 logger.info('Loading in the configurations...')
 Parser = SafeConfigParser()
-Parser.read('config/webappconfig.ini')
+Parser.read('./config/webappconfig.ini')
 
 logger.info('Reading in the configurations...')
 try:
@@ -55,7 +55,6 @@ from .database import models
 
 # Setup the database using the DB communcation's session
 from .database.dbcomm import db_session
-# application.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/openspaceapidb'
 
 # Close the DB Session's when app exits or session ends
 @application.teardown_appcontext
