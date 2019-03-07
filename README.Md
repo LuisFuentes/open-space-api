@@ -2,6 +2,13 @@ Open Space API
 ===============
 A REST API that allows users to search for information on solar objects.
 
+Currently the API is hosted as a [Heroku app][openspaceherokulink].
+You can query for data following these API routes:
+```
+/api/shuttle/mission/<mission_name>
+/api/shuttle/launch_year/<year>
+```
+
 Setting up the project
 -----------------------
 Open Space runs on python3, please make sure you are using the latest.
@@ -101,10 +108,11 @@ init_db()
 
 Populate the database
 ----------------------
-To populate the database with the data that was scraped by the wikiscraper, we'll use the populdate DB python file.
+To populate the database with the data that was scraped by the wikiscraper, we'll use the populate DB python file.
 First, make sure ou are in the 'webapp' directory. Then run the file
 ```
 cd webapp
 python3 -m database.populateDB
 ```
 
+[openspaceherokulink]: http://openspaceapi.herokuapp.com

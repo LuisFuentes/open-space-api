@@ -11,7 +11,7 @@ def index():
     logger.debug("Hit the default page!")
     return ("Hello, World! This is a confirmation page to show the app is up")
 
-@application.route('/shuttle/mission/<mission_name>')
+@application.route('/api/shuttle/mission/<mission_name>')
 def get_shuttle_by_mission_name(mission_name):
     '''
     Fetch a single shuttle's info by name.
@@ -21,7 +21,7 @@ def get_shuttle_by_mission_name(mission_name):
     shuttle = ShuttleMission.query.filter(ShuttleMission.mission_name == mission_name).first()
     return shuttle.as_dict_str()
 
-@application.route('/shuttle/launchyear/<int:launch_year>')
+@application.route('/api/shuttle/launchyear/<int:launch_year>')
 def get_shuttles_by_year(launch_year):
     '''
     Fetch all shuttles's info with the same launch year given.
