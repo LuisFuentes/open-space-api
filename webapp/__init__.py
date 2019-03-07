@@ -37,12 +37,7 @@ Parser = SafeConfigParser()
 Parser.read('webappconfig.ini')
 
 logger.info('Reading in the configurations...')
-try:
-    # Store in memory the following
-    # NumberOfWindows = int(Parser.get("ApplicationSettings", "NumberOfWindows"))
-    Test = str(Parser.get("ApplicationSettings", "Test"))
-except Exception as e:
-    logger.info("Caught an exception while loading config file %s", e)
+Test = str(Parser.get("ApplicationSettings", "Test"))
 
 logger.info('Finished reading all configurations!')
 
