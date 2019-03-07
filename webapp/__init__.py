@@ -19,14 +19,14 @@ logger.setLevel(logging.INFO)
 
 # Set the log files to be created under current
 # Max size of each log file is 100mb, back up 5 files
-# handler = logging.handlers.RotatingFileHandler(
-#     './logs/webapplogs.log',
-#     maxBytes=5*1024*1024, backupCount=5)
-# handler.setLevel(logging.INFO)
+handler = logging.handlers.RotatingFileHandler(
+     os.path.join(os.path.dirname(__file__), r'webapplogs.log'),
+     maxBytes=5*1024*1024, backupCount=5)
+handler.setLevel(logging.INFO)
 
-# formatter = logging.Formatter('%(asctime)s - %(levelname)s: %(message)s')
-# handler.setFormatter(formatter)
-#logger.addHandler(handler)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s: %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
 
 logger.info('Starting web space api')
 # The following variables are constants (outside a func) and will

@@ -4,14 +4,14 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from webapp import Parser
 
-# Fetch the config settings
+# Fetch the config settings for the DB
 database_user = str(Parser.get("DatabaseSettings", "User"))
 database_pw = str(Parser.get("DatabaseSettings", "Password"))
 database_name = str(Parser.get("DatabaseSettings", "DatabaseName"))
 database_server = str(Parser.get("DatabaseSettings", "ServerName"))
 
 # Send the connection string
-#//user:password@host/dbname[?key=value..]
+# FORMAT: //user:password@host/dbname[?key=value..]
 connection_str = "postgresql://{0}:{1}@{2}/{3}".format(database_user, database_pw, database_server, database_name) 
 
 engine = create_engine(connection_str, convert_unicode=True)
