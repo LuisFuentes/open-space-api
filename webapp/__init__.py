@@ -19,7 +19,7 @@ logger.setLevel(logging.INFO)
 # Set the log files to be created under current
 # Max size of each log file is 100mb, back up 5 files
 handler = logging.handlers.RotatingFileHandler(
-    '/home/luis/Source/openspaceapi/webapp/logs/webapplogs.log',
+    'webapp/logs/webapplogs.log',
     maxBytes=5*1024*1024, backupCount=5)
 handler.setLevel(logging.INFO)
 
@@ -34,7 +34,7 @@ logger.info('Starting web space api')
 # Read from the app's config file
 logger.info('Loading in the configurations...')
 Parser = SafeConfigParser()
-Parser.read('/home/luis/Source/openspaceapi/webapp/config/webappconfig.ini')
+Parser.read('webapp/config/webappconfig.ini')
 
 logger.info('Reading in the configurations...')
 try:
