@@ -11,6 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 from configparser import SafeConfigParser
 import logging
 import logging.handlers
+import os
 
 # Setup logging
 logger = logging.getLogger(__name__)
@@ -34,7 +35,7 @@ logger.info('Starting web space api')
 # Read from the app's config file
 logger.info('Loading in the configurations...')
 Parser = SafeConfigParser()
-Parser.read('webappconfig.ini')
+Parser.read(os.path.join(os.path.dirname(__file__), r"webappconfig.ini"))
 
 logger.info('Reading in the configurations...')
 Test = str(Parser.get("ApplicationSettings", "Test"))
